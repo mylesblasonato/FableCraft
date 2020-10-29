@@ -2,6 +2,6 @@
 {
     public interface IFableManager
     {
-        void Play(StoryNode storyNode, int index, float duration, bool eventTriggered = false);
+        void Play(StoryNode storyNode, int index, bool eventTriggered = false);
     }
 }

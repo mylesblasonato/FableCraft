@@ -15,8 +15,7 @@ namespace FableCraft
 
         public string StoryText => _storyText;
 
-        public void Play(TextMeshProUGUI storyTextContainer, int index, TextEffect textEffect, float duration,
-            bool eventTriggered = false)
+        public void Play(TextMeshProUGUI storyTextContainer, int index, TextEffect textEffect, float duration = 0, bool eventTriggered = false)
         {
             if (FableManager.Instance.CurrentStoryNode == index)
             {

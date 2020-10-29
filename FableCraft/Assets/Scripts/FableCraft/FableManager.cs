@@ -10,6 +10,7 @@ namespace FableCraft
         [SerializeField] FableController _continueButton;
 
         GameObject _textEffect = null;
+        float _textEffectDuration = 0f;
         
         public int CurrentStoryNode { get; set; } = 0;
         public static FableManager Instance { get; private set; }
@@ -22,25 +23,28 @@ namespace FableCraft
             _continueButton.gameObject.SetActive(false);
         }
 
-        public void Play(StoryNode storyNode, int index, float duration, bool eventTriggered = false)
+        public void Play(StoryNode storyNode, int index, bool eventTriggered = false)
         {
             if (_textEffect != null)
             {
                 var textEffectGO = Instantiate(_textEffect);
-                storyNode.Play(_storyTextContainer, index, textEffectGO.GetComponent<TextEffect>(), duration,
+                storyNode.Play(_storyTextContainer, index, textEffectGO.GetComponent<TextEffect>(), _textEffectDuration,
                     eventTriggered);
             }
             else
             {
-                storyNode.Play(_storyTextContainer, index, null, duration,
+                storyNode.Play(_storyTextContainer, index, null, _textEffectDuration,
                     eventTriggered);
             }
         }
 
-        public void ChangeTextEffect(GameObject textEffect)
+        public void ChangeTextEffect(GameObject textEffect, float duration)
         {
             if (textEffect != null)
+            {
                 _textEffect = textEffect;
+                _textEffectDuration = duration;
+            }
         }
 
         public void ShowContinueButton(bool show)

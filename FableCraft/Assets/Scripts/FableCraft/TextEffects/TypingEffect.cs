@@ -11,9 +11,10 @@ namespace FableCraft.TextEffects
         char[] _chars;
  
         public override void Play(string text, float duration, TextMeshProUGUI textContainer)
-        {
+        { 
             _duration = duration;
             _textContainer = textContainer;
+            _textContainer.text = "";
             _chars = text.ToCharArray();
             
             StopAllCoroutines();
@@ -27,6 +28,8 @@ namespace FableCraft.TextEffects
                 _textContainer.text += letter;
                 yield return new WaitForSeconds(_duration);
             }
+
+            Destroy(gameObject);
         }
     }
 }

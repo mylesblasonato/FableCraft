@@ -1,4 +1,6 @@
-﻿namespace FableCraft
+﻿using UnityEngine;
+
+namespace FableCraft
 {
     public interface IFableManager
     {

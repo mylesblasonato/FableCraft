@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using FableCraft;
+using System.Linq;
 
 namespace FableCraft
 {
@@ -20,26 +20,18 @@ namespace FableCraft
         [MenuItem("FableCraft/Create New Beat")]
         public static void CreateNewFable()
         {
-            //var files = Directory.GetFiles($"{beatsDir}", "*.meta", SearchOption.AllDirectories);
-            //var fileNumbers = files.Where(z => z.Contains("New Beat")).Select(z =>
-            //{
-            //    try
-            //    {
-            //        return int.Parse(z.Split(' ')[2]);
-            //    }
-            //    catch
-            //    {
-            //        return 0;
-            //    }
-            //}).ToList();
-            //fileNumbers.Sort();
-            //var lastFileNumber = fileNumbers.LastOrDefault();
-            //var numFiles = files.Length;
-
             FableEditor window = ScriptableObject.CreateInstance<FableEditor>();
             window.position = new Rect(Screen.width / 2 + 250, Screen.height / 2, _beatCreatorWindowWidth, _beatCreatorWindowHeight);
             window.titleContent = new GUIContent(_beatCreatorName);
             window.Show(true);
+        }
+
+        [MenuItem("FableCraft/Remove Deleted Beats")]
+        public static void CleanUpDeletedScenes()
+        {
+            var currentScenes = EditorBuildSettings.scenes;
+            var filteredScenes = currentScenes.Where(ebss => File.Exists(ebss.path)).ToArray();
+            EditorBuildSettings.scenes = filteredScenes;
         }
 
         void OnGUI()
@@ -72,6 +64,13 @@ namespace FableCraft
             EditorUtility.FocusProjectWindow();
             Object obj = AssetDatabase.LoadAssetAtPath<Object>($"{beatsDir}{beatName}.unity");
             Selection.activeObject = obj;
+
+            var original = EditorBuildSettings.scenes;
+            var newSettings = new EditorBuildSettingsScene[original.Length + 1];
+            System.Array.Copy(original, newSettings, original.Length);
+            var sceneToAdd = new EditorBuildSettingsScene($"{beatsDir}{beatName}.unity", true);
+            newSettings[newSettings.Length - 1] = sceneToAdd;
+            EditorBuildSettings.scenes = newSettings;
         }
 
 #endif

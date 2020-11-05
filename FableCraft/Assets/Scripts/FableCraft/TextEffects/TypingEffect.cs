@@ -9,14 +9,17 @@ namespace FableCraft.TextEffects
         TextMeshProUGUI _textContainer;
         float _duration;
         char[] _chars;
- 
+
         public override void Play(string text, float duration, TextMeshProUGUI textContainer)
-        { 
-            _duration = duration;
+        {
             _textContainer = textContainer;
             _textContainer.text = "";
             _chars = text.ToCharArray();
-            
+            _duration = duration / _chars.Length;
+
+            if(_clip != null)
+                FableAudioManager.Instance.PlayTextEffectAudio(_clip, _volume);
+
             StopAllCoroutines();
             StartCoroutine(Effect());
         }
@@ -29,7 +32,7 @@ namespace FableCraft.TextEffects
                 yield return new WaitForSeconds(_duration);
             }
 
-            Destroy(gameObject);
+            FableAudioManager.Instance.StopTextEffectAudio();
         }
     }
 }

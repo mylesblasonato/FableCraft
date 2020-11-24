@@ -1,8 +1,9 @@
-﻿using TMPro;
+﻿using Bolt;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace FableCraft
 {
@@ -10,13 +11,16 @@ namespace FableCraft
     {
         [SerializeField] FableData _fableData;
         [SerializeField] TextMeshProUGUI _storyTextContainer;
+        [SerializeField] GameObject _optionButtonsContainer, _optionButtonPrefab;
         [SerializeField] FableController _continueButton;
 
         Scene _currentScene;
         TextEffect _textEffect;
         GameObject _textEffectGO = null;
         bool _loadingGame = false;
-        int _currentStoryNode = 0;
+        public bool _optionSelected = false;
+        string _currentCheckpoint = "Checkpoint 1";
+        int _selectedOptionPath = 0;
 
         public static FableManager Instance { get; private set; }
 
@@ -37,30 +41,28 @@ namespace FableCraft
 
         void Start()
         {
-            _continueButton.gameObject.SetActive(false);           
-            LoadCheckpoint(_fableData.CurrentCheckpoint);
+            _continueButton.gameObject.SetActive(false);
+            LoadCheckpoint(_fableData);
         }
 
-        void LoadCheckpoint(int index)
+        public void LoadCheckpoint(FableData data)
         {
+            _currentCheckpoint = data.CurrentCheckpointName;
             StopAllCoroutines();
-
-            _currentStoryNode = index;
-
-            if (_currentStoryNode > 0)
-                _loadingGame = true;
+            CustomEvent.Trigger(Instance.gameObject, _currentCheckpoint, _currentCheckpoint);
+            _loadingGame = true;          
         }
         
-        public void Checkpoint(int index)
+        public void Checkpoint(string checkpointName)
         {
             if (!_loadingGame)
             {
-                _fableData.CurrentCheckpoint = index;
+                _fableData.CurrentCheckpointName = checkpointName;
                 _fableData.CurrentScene = _currentScene;
                 _fableData.SaveFable();
             }
 
-            if (_currentStoryNode == index)
+            if (string.Compare(checkpointName, _fableData.CurrentCheckpointName) == 0)
                 _loadingGame = false;
         }
 
@@ -73,17 +75,40 @@ namespace FableCraft
             }
         }
 
-        public void Play(StoryNode storyNode, int index)
+        public void Play(StoryNode storyNode, int nodeIndex, int connectedOption, int index)
         {
             if (_loadingGame) return;
-            _currentStoryNode++;
-            StopAllCoroutines();
             _storyTextContainer.text = "";
             storyNode.Play(
                 index,
                 _storyTextContainer,
                 _textEffect != null ?
                     _textEffectGO.GetComponent<TextEffect>() : null);
+        }
+
+        public void AddOption(string name, string connectedOptionName, float width, float height)
+        {
+            if (_loadingGame)
+            {
+                CustomEvent.Trigger(FableManager.Instance.gameObject, connectedOptionName, 0);
+                return;
+            }
+
+            var optionBtn = Instantiate(_optionButtonPrefab);
+            optionBtn.transform.SetParent(_optionButtonsContainer.transform);
+            optionBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+            optionBtn.transform.localPosition = new Vector3(-width, -height, 0f);
+            optionBtn.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+            optionBtn.transform.localScale = new Vector3(1f, 1f, 1f);
+            optionBtn.GetComponent<FableController>().ConnectedCheckpointName = connectedOptionName;
+        }
+
+        public void HideOptions()
+        {
+            foreach (Transform go in _optionButtonsContainer.transform)
+            {
+                Destroy(go.gameObject);
+            }
         }
 
         public void PlayMusic(int clip, float volume = 1)

@@ -123,9 +123,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &11013072 stripped
+--- !u!1 &228859331 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1155894580607518671, guid: 38f941bba821f2442b34a78730999d32, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7903230407988589130, guid: 38f941bba821f2442b34a78730999d32, type: 3}
   m_PrefabInstance: {fileID: 1155894581189437368}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &337023416 stripped
@@ -139,11 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &487451765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1155894581021144658, guid: 38f941bba821f2442b34a78730999d32, type: 3}
-  m_PrefabInstance: {fileID: 1155894581189437368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &606742416 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1155894581660893224, guid: 38f941bba821f2442b34a78730999d32, type: 3}
@@ -715,8 +710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fableData: {fileID: 11400000, guid: 064f2d828f0e05040942a2ee36ef4504, type: 2}
   _storyTextContainer: {fileID: 337023416}
+  _optionButtonsContainer: {fileID: 228859331}
+  _optionButtonPrefab: {fileID: 3132914332568973264, guid: 19f7e87c847e59c47bbe25fd355b9c78, type: 3}
   _continueButton: {fileID: 2119769313}
-  _currentStoryNode: 0
 --- !u!4 &1497714439
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,10 +1110,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1155894581425357307, guid: 38f941bba821f2442b34a78730999d32, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1155894581660893224, guid: 38f941bba821f2442b34a78730999d32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1206,17 +1198,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8226852386585206891, guid: 38f941bba821f2442b34a78730999d32, type: 3}
-      propertyPath: _imageContainers.Array.size
-      value: 2
+    - target: {fileID: 2136068850160130934, guid: 38f941bba821f2442b34a78730999d32, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8226852386585206891, guid: 38f941bba821f2442b34a78730999d32, type: 3}
-      propertyPath: _imageContainers.Array.data[0]
-      value: 
-      objectReference: {fileID: 487451765}
-    - target: {fileID: 8226852386585206891, guid: 38f941bba821f2442b34a78730999d32, type: 3}
-      propertyPath: _imageContainers.Array.data[1]
-      value: 
-      objectReference: {fileID: 11013072}
+    - target: {fileID: 2136068850160130934, guid: 38f941bba821f2442b34a78730999d32, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f941bba821f2442b34a78730999d32, type: 3}

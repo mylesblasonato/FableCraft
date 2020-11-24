@@ -11,10 +11,12 @@ namespace FableCraft
         Scene _currentScene;
 
         [SerializeField] SceneAsset _currentSceneAsset = null;
-        [SerializeField] int _currentCheckpoint = 0;
+        [SerializeField] string _currentCheckpointName;
+        [SerializeField] int _currentPlayNode= 0;
 
         public Scene CurrentScene { get => _currentScene; set => _currentScene = value; }
-        public int CurrentCheckpoint { get => _currentCheckpoint; set => _currentCheckpoint = value; }
+        public string CurrentCheckpointName { get => _currentCheckpointName; set => _currentCheckpointName = value; }
+        public int CurrentPlayNode { get => _currentPlayNode; set => _currentPlayNode = value; }
 
         void OnEnable()
         {

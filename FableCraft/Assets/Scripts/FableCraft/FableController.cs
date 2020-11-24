@@ -7,9 +7,18 @@ namespace FableCraft
 {
     public class FableController : MonoBehaviour, IFableController
     {
+        public string ConnectedCheckpointName { get; set; }
+
         public void ContinueStory()
         {
             CustomEvent.Trigger(FableManager.Instance.gameObject, "Continue");
+        }
+
+        public void SelectOption()
+        {
+            FableManager.Instance.HideOptions();
+            FableManager.Instance._optionSelected = true;
+            CustomEvent.Trigger(FableManager.Instance.gameObject, ConnectedCheckpointName, 0);
         }
     }
 }

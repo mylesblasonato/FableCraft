@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Inciting Incident
   m_EditorClassIdentifier: 
   _storyTexts:
-  - It's level 2!
-  - Do you love it?!
+  - Hello
+  - Do you love it?! 2
+  - ;ljjljljlk 2
+  - ddddddddd 2
+  - ffffffff 2
   _voClips: []
   _voVolume: 1

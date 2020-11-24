@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: New Fable Data
   m_EditorClassIdentifier: 
   _currentSceneAsset: {fileID: 102900000, guid: 88d46842a4b0fb140a0061824c4d5f09, type: 3}
-  _currentCheckpoint: 0
+  _currentCheckpointName: Checkpoint 2
+  _currentPlayNode: 0

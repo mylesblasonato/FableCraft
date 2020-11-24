@@ -7,7 +7,6 @@ namespace FableCraft
     [CreateAssetMenu(fileName = "StoryNode", menuName = "AIE/FableCraft/Create Story Node...")]
     public class StoryNode : ScriptableObject, IStoryNode
     {
-        [TextArea(10, 10)]
         [SerializeField] string[] _storyTexts;
         [SerializeField] AudioClip[] _voClips;
         [SerializeField] IStoryOption[] _storyOption;

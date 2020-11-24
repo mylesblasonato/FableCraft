@@ -15,6 +15,7 @@ namespace FableCraft
         [SerializeField] int _currentPlayNode= 0;
 
         public Scene CurrentScene { get => _currentScene; set => _currentScene = value; }
+        public SceneAsset CurrentSceneAsset { get => _currentSceneAsset; private set => _currentSceneAsset = value; }
         public string CurrentCheckpointName { get => _currentCheckpointName; set => _currentCheckpointName = value; }
         public int CurrentPlayNode { get => _currentPlayNode; set => _currentPlayNode = value; }
 
@@ -31,8 +32,12 @@ namespace FableCraft
 
         public void SetSceneAsset(SceneAsset sceneAsset)
         {
-            _currentSceneAsset = sceneAsset;
-            FableSceneManager.Instance.LoadScene(sceneAsset.name);
+            if (sceneAsset.name != "Main Menu")
+            {
+                _currentSceneAsset = sceneAsset;
+            }
+
+            FableSceneManager.Instance.LoadScene(sceneAsset.name, true);
             _currentScene = SceneManager.GetActiveScene();
         }
 

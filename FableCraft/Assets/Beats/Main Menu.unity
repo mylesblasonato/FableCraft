@@ -462,6 +462,8 @@ MonoBehaviour:
   _voiceSource: {fileID: 132843541}
   _musicSource: {fileID: 132843538}
   _textSource: {fileID: 132843537}
+  _sfxClips: []
+  _musicClips: []
 --- !u!82 &132843541
 AudioSource:
   m_ObjectHideFlags: 0
@@ -776,7 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Story
-      Flow Builder","summary":"Create the flow of your narrative","pan":{"x":194.0,"y":-27.0},"zoom":0.9,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-270.0,"y":-223.0},"guid":"a977a2f2-c8d2-4530-bb60-a456628be9aa","$version":"A","$type":"Bolt.Start","$id":"10"},{"chainable":false,"member":{"name":"Initialize","parameterTypes":[],"targetType":"FableCraft.FableData","targetTypeName":"FableCraft.FableData","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":-50.0,"y":-60.0},"guid":"0e479de3-d7e2-4492-9e08-330bf177b1c3","$version":"A","$type":"Bolt.InvokeMember","$id":"12"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.Object","targetTypeName":"UnityEngine.Object","$version":"A"},"defaultValues":{"%target":{"$content":1,"$type":"UnityEngine.Object"}},"position":{"x":-81.0,"y":-223.0},"guid":"3c0cb8d6-7d42-4d3d-b116-c35d6d142049","$version":"A","$type":"Bolt.InvokeMember","$id":"15"},{"coroutine":false,"defaultValues":{"name":{"$content":"Play","$type":"System.String"}},"position":{"x":-268.0,"y":-59.0},"guid":"e04424c4-f918-4e10-8294-a313acc2d30c","$version":"A","$type":"Bolt.BoltUnityEvent","$id":"18"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"15"},"destinationKey":"enter","guid":"04d6082e-acb0-4b45-a781-f9dd10842b06","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"533d9eda-4449-4b4f-8b36-41fbacda3982","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
+      Flow Builder","summary":"Create the flow of your narrative","pan":{"x":200.3445,"y":-26.68889},"zoom":1.0,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-270.0,"y":-223.0},"guid":"a977a2f2-c8d2-4530-bb60-a456628be9aa","$version":"A","$type":"Bolt.Start","$id":"10"},{"chainable":false,"member":{"name":"Initialize","parameterTypes":[],"targetType":"FableCraft.FableData","targetTypeName":"FableCraft.FableData","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":-50.0,"y":-60.0},"guid":"0e479de3-d7e2-4492-9e08-330bf177b1c3","$version":"A","$type":"Bolt.InvokeMember","$id":"12"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.Object","targetTypeName":"UnityEngine.Object","$version":"A"},"defaultValues":{"%target":{"$content":1,"$type":"UnityEngine.Object"}},"position":{"x":-81.0,"y":-223.0},"guid":"3c0cb8d6-7d42-4d3d-b116-c35d6d142049","$version":"A","$type":"Bolt.InvokeMember","$id":"15"},{"coroutine":false,"defaultValues":{"name":{"$content":"Continue","$type":"System.String"}},"position":{"x":-268.0,"y":-59.0},"guid":"e04424c4-f918-4e10-8294-a313acc2d30c","$version":"A","$type":"Bolt.BoltUnityEvent","$id":"18"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"15"},"destinationKey":"enter","guid":"04d6082e-acb0-4b45-a781-f9dd10842b06","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"533d9eda-4449-4b4f-8b36-41fbacda3982","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
     _objectReferences:
     - {fileID: 11400000, guid: 064f2d828f0e05040942a2ee36ef4504, type: 2}
     - {fileID: 709112878}
@@ -1310,7 +1312,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Play
+          m_StringArgument: Continue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &1155894580324931543
@@ -1425,7 +1427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: LOAD GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

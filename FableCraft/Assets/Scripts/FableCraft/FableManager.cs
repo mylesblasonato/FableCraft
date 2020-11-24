@@ -17,7 +17,6 @@ namespace FableCraft
         Scene _currentScene;
         TextEffect _textEffect;
         GameObject _textEffectGO = null;
-        bool _loadingGame = false;
         public bool _optionSelected = false;
         string _currentCheckpoint = "Checkpoint 1";
         int _selectedOptionPath = 0;
@@ -48,36 +47,26 @@ namespace FableCraft
         public void LoadCheckpoint(FableData data)
         {
             _currentCheckpoint = data.CurrentCheckpointName;
-            StopAllCoroutines();
-            CustomEvent.Trigger(Instance.gameObject, _currentCheckpoint, _currentCheckpoint);
-            _loadingGame = true;          
+            StopAllCoroutines();         
+            CustomEvent.Trigger(Instance.gameObject, _currentCheckpoint, data.CurrentPlayNode);
+            LoadBeat(data.CurrentSceneAsset);
         }
-        
+
         public void Checkpoint(string checkpointName)
         {
-            if (!_loadingGame)
-            {
-                _fableData.CurrentCheckpointName = checkpointName;
-                _fableData.CurrentScene = _currentScene;
-                _fableData.SaveFable();
-            }
-
-            if (string.Compare(checkpointName, _fableData.CurrentCheckpointName) == 0)
-                _loadingGame = false;
+            _fableData.CurrentCheckpointName = checkpointName;
+            _fableData.CurrentScene = _currentScene;
+            _fableData.SaveFable();
         }
 
         public void LoadBeat(SceneAsset scene)
         {
-            if (_loadingGame) return;
             if (scene != null)
-            {
-                _fableData.SetSceneAsset(scene);            
-            }
+                _fableData.SetSceneAsset(scene);
         }
 
-        public void Play(StoryNode storyNode, int nodeIndex, int connectedOption, int index)
+        public void Play(StoryNode storyNode, int index)
         {
-            if (_loadingGame) return;
             _storyTextContainer.text = "";
             storyNode.Play(
                 index,
@@ -86,14 +75,8 @@ namespace FableCraft
                     _textEffectGO.GetComponent<TextEffect>() : null);
         }
 
-        public void AddOption(string name, string connectedOptionName, float width, float height)
+        public void AddOption(string name, string connectedOptionName, int optionIndex, float width, float height)
         {
-            if (_loadingGame)
-            {
-                CustomEvent.Trigger(FableManager.Instance.gameObject, connectedOptionName, 0);
-                return;
-            }
-
             var optionBtn = Instantiate(_optionButtonPrefab);
             optionBtn.transform.SetParent(_optionButtonsContainer.transform);
             optionBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
@@ -101,6 +84,7 @@ namespace FableCraft
             optionBtn.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
             optionBtn.transform.localScale = new Vector3(1f, 1f, 1f);
             optionBtn.GetComponent<FableController>().ConnectedCheckpointName = connectedOptionName;
+            optionBtn.GetComponent<FableController>().StoryOptionIndex = optionIndex;
         }
 
         public void HideOptions()
@@ -113,19 +97,16 @@ namespace FableCraft
 
         public void PlayMusic(int clip, float volume = 1)
         {
-            if (_loadingGame) return;
             FableAudioManager.Instance.PlayMusic(clip, volume);
         }
 
         public void PlaySfx(int clip, float volume = 1)
         {
-            if (_loadingGame) return;
             FableAudioManager.Instance.PlaySfx(clip, volume);
         }
 
         public void StopAudio()
         {
-            if (_loadingGame) return;
             FableAudioManager.Instance.StopAudio();
         }
         
@@ -139,7 +120,6 @@ namespace FableCraft
 
         public void ChangeSprite(Sprite sprite, Color color, Material shader, int imageContainerIndex)
         {
-            if (_loadingGame) return;
             var container = FableUIManager.Instance.GetImageContainer(imageContainerIndex);
             container.GetComponent<Image>().color = color;
             if(sprite)
@@ -150,7 +130,6 @@ namespace FableCraft
 
         public void ShowContinueButton(bool show)
         {
-            if (_loadingGame) return;
             _continueButton.gameObject.SetActive(show);
         }
     }

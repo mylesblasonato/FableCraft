@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storyTexts:
   - Hello
-  - Do you love it?! 2
-  - ;ljjljljlk 2
-  - ddddddddd 2
+  - Selected opt 1
+  - Selected opt 2
+  - Finish sequence
   - ffffffff 2
   _voClips: []
   _voVolume: 1

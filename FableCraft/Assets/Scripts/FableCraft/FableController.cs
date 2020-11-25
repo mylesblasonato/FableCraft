@@ -19,7 +19,9 @@ namespace FableCraft
         {
             FableManager.Instance.HideOptions();
             FableManager.Instance._optionSelected = true;
-            CustomEvent.Trigger(FableManager.Instance.gameObject, ConnectedCheckpointName, StoryOptionIndex);
+
+            FableManager.Instance._triggerDialogue?.Invoke(ConnectedCheckpointName, StoryOptionIndex.ToString());
+            //CustomEvent.Trigger(FableManager.Instance.gameObject, ConnectedCheckpointName, StoryOptionIndex);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Bolt;
+using System;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,14 +15,17 @@ namespace FableCraft
         [SerializeField] TextMeshProUGUI _storyTextContainer;
         [SerializeField] GameObject _optionButtonsContainer, _optionButtonPrefab;
         [SerializeField] FableController _continueButton;
-
+        
         Scene _currentScene;
         TextEffect _textEffect;
-        GameObject _textEffectGO = null;
-        public bool _optionSelected = false;
+        GameObject _textEffectGO = null;      
         string _currentCheckpoint = "Checkpoint 1";
         int _selectedOptionPath = 0;
 
+        [HideInInspector] public Action<string> _checkpoint;
+        [HideInInspector] public Action<string, string> _triggerDialogue;
+        public bool _optionSelected = false;
+        public string CurrentCheckpoint => _currentCheckpoint;
         public static FableManager Instance { get; private set; }
 
         // Start is called before the first frame update
@@ -47,13 +52,15 @@ namespace FableCraft
         public void LoadCheckpoint(FableData data)
         {
             _currentCheckpoint = data.CurrentCheckpointName;
-            StopAllCoroutines();         
+            StopAllCoroutines();
             CustomEvent.Trigger(Instance.gameObject, _currentCheckpoint, data.CurrentPlayNode);
+            _checkpoint?.Invoke(_currentCheckpoint);
             LoadBeat(data.CurrentSceneAsset);
         }
 
         public void Checkpoint(string checkpointName)
         {
+            _currentCheckpoint = checkpointName;
             _fableData.CurrentCheckpointName = checkpointName;
             _fableData.CurrentScene = _currentScene;
             _fableData.SaveFable();

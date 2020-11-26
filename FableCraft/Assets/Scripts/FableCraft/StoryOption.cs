@@ -35,8 +35,11 @@ namespace FableCraft
         [Inspectable, Serialize]
         public List<string> optionBranches { get; set; } = new List<string>();
 
+<<<<<<< HEAD
         Action<string, string> dh;
 
+=======
+>>>>>>> main
         protected override bool register => false;
 
         protected override void Definition()
@@ -60,8 +63,13 @@ namespace FableCraft
             var data = stack.GetElementData<Data>(this);
             var reference = stack.ToReference();
             Action<string, string> handler = (_storyOptionsName, eventName) => TriggerOption(reference, _storyOptionsName, eventName);
+<<<<<<< HEAD
             data.handler = handler;
             dh = handler;          
+=======
+            data.handler = handler;         
+            FableManager.Instance._triggerDialogue += handler;
+>>>>>>> main
         }
 
         public override void StopListening(GraphStack stack)
@@ -71,22 +79,34 @@ namespace FableCraft
             var reference = stack.ToReference();
             Action<string, string> handler = (_storyOptionsName, eventName) => TriggerOption(reference, _storyOptionsName, eventName);
             data.handler = handler;
+<<<<<<< HEAD
             dh = handler;            
+=======
+            FableManager.Instance._triggerDialogue -= handler;
+>>>>>>> main
         }
 
         private ControlOutput StartAction(Flow flow)
         {
             _flow = flow;
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
             for (int i = 0; i < storyOptions.Count; i++)
             {
                 FableManager.Instance.AddOption(storyOptions[i], _storyOptionsName, i, buttonWidth, buttonHeight);
             }
+<<<<<<< HEAD
             FableManager.Instance._triggerDialogue += dh;
+=======
+>>>>>>> main
             return null;
         }
 
         private void TriggerOption(GraphReference reference, string storyOptionsName, string eventName)
         {
+<<<<<<< HEAD
             if (!FableManager.Instance._optionSelected) return;
             foreach (var branch in branches)
             {
@@ -97,6 +117,18 @@ namespace FableCraft
                         FableManager.Instance._optionSelected = false;
                         FableManager.Instance._triggerDialogue -= dh;
                         flow.Invoke(branch.Value);
+=======
+            foreach (var branch in branches)
+            {
+                if (_storyOptionsName == FableManager.Instance.CurrentCheckpoint)
+                {
+                    if (branch.Key == eventName)
+                    {
+                        using (var flow = Flow.New(reference))
+                        {
+                            flow.Invoke(branch.Value);
+                        }
+>>>>>>> main
                     }
                 }
             }

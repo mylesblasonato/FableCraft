@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿using System;
 using UnityEditor;
+=======
+﻿using UnityEditor;
+>>>>>>> main
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +17,10 @@ namespace FableCraft
 
         [SerializeField] SceneAsset _currentSceneAsset = null;
         [SerializeField] string _currentCheckpointName;
+<<<<<<< HEAD
         public Action<string> _checkpointEvent;
+=======
+>>>>>>> main
         [SerializeField] int _currentPlayNode= 0;
 
         public Scene CurrentScene { get => _currentScene; set => _currentScene = value; }

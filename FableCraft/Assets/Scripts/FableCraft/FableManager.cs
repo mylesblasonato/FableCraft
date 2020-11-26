@@ -20,6 +20,7 @@ namespace FableCraft
         TextEffect _textEffect;
         GameObject _textEffectGO = null;      
         string _currentCheckpoint = "Checkpoint 1";
+<<<<<<< HEAD
         int _selectedOptionPath = 0;      
 
         [HideInInspector] public Action<string> _checkpoint;
@@ -28,6 +29,14 @@ namespace FableCraft
         public bool _optionSelected = false;
         public string CurrentCheckpoint => _currentCheckpoint;
         public FableData FableData => _fableData;
+=======
+        int _selectedOptionPath = 0;
+
+        [HideInInspector] public Action<string> _checkpoint;
+        [HideInInspector] public Action<string, string> _triggerDialogue;
+        public bool _optionSelected = false;
+        public string CurrentCheckpoint => _currentCheckpoint;
+>>>>>>> main
         public static FableManager Instance { get; private set; }
 
         // Start is called before the first frame update
@@ -48,6 +57,7 @@ namespace FableCraft
         void Start()
         {
             _continueButton.gameObject.SetActive(false);
+<<<<<<< HEAD
             _loadingGame = true;
         }
 
@@ -69,6 +79,26 @@ namespace FableCraft
             _fableData.CurrentScene = _currentScene;
             _fableData.CurrentPlayNode = option;
             _fableData.SaveFable();           
+=======
+            LoadCheckpoint(_fableData);
+        }
+
+        public void LoadCheckpoint(FableData data)
+        {
+            _currentCheckpoint = data.CurrentCheckpointName;
+            StopAllCoroutines();
+            CustomEvent.Trigger(Instance.gameObject, _currentCheckpoint, data.CurrentPlayNode);
+            _checkpoint?.Invoke(_currentCheckpoint);
+            LoadBeat(data.CurrentSceneAsset);
+        }
+
+        public void Checkpoint(string checkpointName)
+        {
+            _currentCheckpoint = checkpointName;
+            _fableData.CurrentCheckpointName = checkpointName;
+            _fableData.CurrentScene = _currentScene;
+            _fableData.SaveFable();
+>>>>>>> main
         }
 
         public void LoadBeat(SceneAsset scene)
@@ -79,7 +109,10 @@ namespace FableCraft
 
         public void Play(StoryNode storyNode, int index)
         {
+<<<<<<< HEAD
             if (_loadingGame) _loadingGame = false;
+=======
+>>>>>>> main
             _storyTextContainer.text = "";
             storyNode.Play(
                 index,
@@ -90,7 +123,10 @@ namespace FableCraft
 
         public void AddOption(string name, string connectedOptionName, int optionIndex, float width, float height)
         {
+<<<<<<< HEAD
             if (_loadingGame) return;
+=======
+>>>>>>> main
             var optionBtn = Instantiate(_optionButtonPrefab);
             optionBtn.transform.SetParent(_optionButtonsContainer.transform);
             optionBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
@@ -134,7 +170,10 @@ namespace FableCraft
 
         public void ChangeSprite(Sprite sprite, Color color, Material shader, int imageContainerIndex)
         {
+<<<<<<< HEAD
             if (_loadingGame) return;
+=======
+>>>>>>> main
             var container = FableUIManager.Instance.GetImageContainer(imageContainerIndex);
             container.GetComponent<Image>().color = color;
             if(sprite)

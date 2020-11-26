@@ -778,16 +778,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Story
-<<<<<<< HEAD
       Flow Builder","summary":"Create the flow of your narrative","pan":{"x":200.3445,"y":-26.68889},"zoom":1.0,"elements":[{"chainable":false,"member":{"name":"Initialize","parameterTypes":[],"targetType":"FableCraft.FableData","targetTypeName":"FableCraft.FableData","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":-50.0,"y":-60.0},"guid":"0e479de3-d7e2-4492-9e08-330bf177b1c3","$version":"A","$type":"Bolt.InvokeMember","$id":"10"},{"coroutine":false,"defaultValues":{"name":{"$content":"Continue","$type":"System.String"}},"position":{"x":-268.0,"y":-59.0},"guid":"e04424c4-f918-4e10-8294-a313acc2d30c","$version":"A","$type":"Bolt.BoltUnityEvent","$id":"13"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"10"},"destinationKey":"enter","guid":"533d9eda-4449-4b4f-8b36-41fbacda3982","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
     _objectReferences:
     - {fileID: 11400000, guid: 064f2d828f0e05040942a2ee36ef4504, type: 2}
-=======
-      Flow Builder","summary":"Create the flow of your narrative","pan":{"x":200.3445,"y":-26.68889},"zoom":1.0,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-270.0,"y":-223.0},"guid":"a977a2f2-c8d2-4530-bb60-a456628be9aa","$version":"A","$type":"Bolt.Start","$id":"10"},{"chainable":false,"member":{"name":"Initialize","parameterTypes":[],"targetType":"FableCraft.FableData","targetTypeName":"FableCraft.FableData","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":-50.0,"y":-60.0},"guid":"0e479de3-d7e2-4492-9e08-330bf177b1c3","$version":"A","$type":"Bolt.InvokeMember","$id":"12"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.Object","targetTypeName":"UnityEngine.Object","$version":"A"},"defaultValues":{"%target":{"$content":1,"$type":"UnityEngine.Object"}},"position":{"x":-81.0,"y":-223.0},"guid":"3c0cb8d6-7d42-4d3d-b116-c35d6d142049","$version":"A","$type":"Bolt.InvokeMember","$id":"15"},{"coroutine":false,"defaultValues":{"name":{"$content":"Continue","$type":"System.String"}},"position":{"x":-268.0,"y":-59.0},"guid":"e04424c4-f918-4e10-8294-a313acc2d30c","$version":"A","$type":"Bolt.BoltUnityEvent","$id":"18"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"15"},"destinationKey":"enter","guid":"04d6082e-acb0-4b45-a781-f9dd10842b06","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"533d9eda-4449-4b4f-8b36-41fbacda3982","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 064f2d828f0e05040942a2ee36ef4504, type: 2}
-    - {fileID: 709112878}
->>>>>>> main
 --- !u!114 &709112880
 MonoBehaviour:
   m_ObjectHideFlags: 0

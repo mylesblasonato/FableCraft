@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Inciting Incident
   m_EditorClassIdentifier: 
   _storyTexts:
-<<<<<<< HEAD
   - 'Hello welcome to Inciting Incident:'
   - Selected opt 1
   - Selected opt 2
@@ -21,12 +20,5 @@ MonoBehaviour:
   - Selected opt 11
   - Selected opt 22
   - Finish sequence
-=======
-  - Hello
-  - Selected opt 1
-  - Selected opt 2
-  - Finish sequence
-  - ffffffff 2
->>>>>>> main
   _voClips: []
   _voVolume: 1

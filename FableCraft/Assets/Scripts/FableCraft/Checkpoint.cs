@@ -13,7 +13,6 @@ namespace FableCraft
     [UnitCategory("FableCraft")] // Sets unit category in Fuzzy Finder. Subfolders are matched and created.
     public class Checkpoint : EventUnit<EmptyEventArgs>, ICheckpoint
     {
-<<<<<<< HEAD
         [DoNotSerialize, PortLabelHidden] public ControlInput enter { get; private set; }
         [DoNotSerialize, PortLabelHidden] public ControlOutput exit { get; private set; }
         [Inspectable, Serialize] public List<string> optionBranches { get; set; } = new List<string>();
@@ -24,17 +23,6 @@ namespace FableCraft
         
         public ValueInput checkpointName;
         public Action<string> dh;
-=======
-        [DoNotSerialize, PortLabelHidden]
-        public ControlInput enter { get; private set; }
-
-        [DoNotSerialize, PortLabelHidden]
-        public ControlOutput exit { get; private set; }
-
-        public ValueInput checkpointName;
-
-        private List<KeyValuePair<string, ControlOutput>> branches;
->>>>>>> main
 
         protected override bool register => false;
 
@@ -42,7 +30,6 @@ namespace FableCraft
         {
             enter = ControlInput("enter", StartAction);
             exit = ControlOutput("exit");
-<<<<<<< HEAD
             checkpointName = ValueInput<string>("checkpointName", checkpoint);
 
             branches = new List<KeyValuePair<string, ControlOutput>>();
@@ -55,36 +42,20 @@ namespace FableCraft
                     branches.Add(new KeyValuePair<string, ControlOutput>(optionBranch, branch));
                 }
             }
-=======
-            checkpointName = ValueInput<string>("checkpointName");
->>>>>>> main
         }
 
         public override void StartListening(GraphStack stack)
         {
-<<<<<<< HEAD
             base.StartListening(stack);
             var data = stack.GetElementData<Data>(this);
             var reference = stack.ToReference();
             Action<string> handler = (eventName) => TriggerOption(reference, eventName);
             data.handler = handler;
             dh = handler;
-=======
-            var reference = stack.ToReference();
-            var flow = Flow.New(reference);            
-            base.StartListening(stack);
-            var data = stack.GetElementData<Data>(this);
-            Action<string> handler = (eventName) => TriggerOption(reference, eventName);
-            data.handler = handler;
-
-            if (flow.GetValue<string>(checkpointName) != FableManager.Instance.CurrentCheckpoint) return;
-            FableManager.Instance._checkpoint += handler;
->>>>>>> main
         }
 
         public override void StopListening(GraphStack stack)
         {
-<<<<<<< HEAD
             base.StopListening(stack);
             var data = stack.GetElementData<Data>(this);
             var reference = stack.ToReference();
@@ -99,28 +70,12 @@ namespace FableCraft
             if (FableManager.Instance._loadingGame)            
                 FableManager.Instance.LoadCheckpoint();
             FableManager.Instance._checkpoint?.Invoke(flow.GetValue<string>(checkpointName));
-=======
-            var reference = stack.ToReference();
-            var flow = Flow.New(reference);          
-            base.StopListening(stack);
-            var data = stack.GetElementData<Data>(this);          
-            Action<string> handler = (eventName) => TriggerOption(reference, eventName);
-            data.handler = handler;
-
-            if (flow.GetValue<string>(checkpointName) != FableManager.Instance.CurrentCheckpoint) return;
-            FableManager.Instance._checkpoint -= handler;
-        }
-
-        private ControlOutput StartAction(Flow flow)
-        {     
->>>>>>> main
             return null;
         }
 
         private void TriggerOption(GraphReference reference, string eventName)
         {
             var flow = Flow.New(reference);
-<<<<<<< HEAD
             if (FableManager.Instance.CurrentCheckpoint == eventName)
             {
                 using (flow)
@@ -130,11 +85,6 @@ namespace FableCraft
                     flow.Invoke(exit);
                 }
             }
-=======
-           // if (flow.GetValue<string>(name) != FableManager.Instance.CurrentCheckpoint) return;          
-            flow?.Invoke(exit);
-            //FableManager.Instance.Checkpoint(flow.GetValue<string>(name));
->>>>>>> main
         }
     }
 }

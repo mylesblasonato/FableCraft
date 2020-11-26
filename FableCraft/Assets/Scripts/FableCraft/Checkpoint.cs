@@ -19,6 +19,8 @@ namespace FableCraft
         
         List<KeyValuePair<string, ControlOutput>> branches;
 
+        [Inspectable, Serialize] public string checkpoint;
+        
         public ValueInput checkpointName;
         public Action<string> dh;
 
@@ -28,7 +30,7 @@ namespace FableCraft
         {
             enter = ControlInput("enter", StartAction);
             exit = ControlOutput("exit");
-            checkpointName = ValueInput<string>("checkpointName");
+            checkpointName = ValueInput<string>("checkpointName", checkpoint);
 
             branches = new List<KeyValuePair<string, ControlOutput>>();
             foreach (var optionBranch in optionBranches)
@@ -67,7 +69,6 @@ namespace FableCraft
             FableManager.Instance._checkpoint += dh;
             if (FableManager.Instance._loadingGame)            
                 FableManager.Instance.LoadCheckpoint();
-            FableManager.Instance.Checkpoint(flow.GetValue<string>(checkpointName));
             FableManager.Instance._checkpoint?.Invoke(flow.GetValue<string>(checkpointName));
             return null;
         }
@@ -75,7 +76,7 @@ namespace FableCraft
         private void TriggerOption(GraphReference reference, string eventName)
         {
             var flow = Flow.New(reference);
-            if (flow.GetValue<string>(checkpointName) == eventName)
+            if (FableManager.Instance.CurrentCheckpoint == eventName)
             {
                 using (flow)
                 {

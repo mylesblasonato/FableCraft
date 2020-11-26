@@ -61,12 +61,13 @@ namespace FableCraft
             _checkpoint?.Invoke(_currentCheckpoint);           
         }
 
-        public void Checkpoint(string checkpointName)
+        public void Checkpoint(string checkpointName, int option)
         {
             _currentCheckpoint = checkpointName;
             _fableData._checkpointEvent = _checkpoint;
             _fableData.CurrentCheckpointName = checkpointName;
-            _fableData.CurrentScene = _currentScene;             
+            _fableData.CurrentScene = _currentScene;
+            _fableData.CurrentPlayNode = option;
             _fableData.SaveFable();           
         }
 
@@ -78,7 +79,7 @@ namespace FableCraft
 
         public void Play(StoryNode storyNode, int index)
         {
-            if (_loadingGame) return;
+            if (_loadingGame) _loadingGame = false;
             _storyTextContainer.text = "";
             storyNode.Play(
                 index,

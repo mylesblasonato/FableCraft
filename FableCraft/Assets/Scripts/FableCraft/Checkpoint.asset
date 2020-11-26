@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: Checkpoint
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[{"key":"Enter","label":null,"summary":null,"hideLabel":false}],"controlOutputDefinitions":[{"key":"Exit","label":null,"summary":null,"hideLabel":false}],"valueInputDefinitions":[{"hasDefaultValue":false,"defaultValue":null,"_type":"System.String","key":"CheckpointName","label":"Checkpoint
+      Name","summary":null,"hideLabel":false}],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-154.5893,"y":106.308},"zoom":1.0,"elements":[{"argumentCount":1,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"Checkpoint
+      1","$type":"System.String"}},"position":{"x":-350.0,"y":-73.0},"guid":"4f539cea-8e25-44dc-9abb-f5564c955ff3","$version":"A","$type":"Bolt.CustomEvent","$id":"12"},{"defaultValues":{},"position":{"x":-604.0,"y":81.0},"guid":"6e630db7-f388-4884-a08f-f9dde2c4014b","$version":"A","$type":"Bolt.GraphInput","$id":"14"},{"defaultValues":{},"position":{"x":301.0,"y":80.0},"guid":"46d97a65-8224-4524-8171-6b03bda87e43","$version":"A","$type":"Bolt.GraphOutput","$id":"16"},{"chainable":false,"member":{"name":"Checkpoint","parameterTypes":["System.String"],"targetType":"FableCraft.FableManager","targetTypeName":"FableCraft.FableManager","$version":"A"},"defaultValues":{"target":null,"%checkpointName":{"$content":"","$type":"System.String"}},"position":{"x":-37.0,"y":79.0},"guid":"c39e00ea-f19a-42a7-9794-f0b502859bc0","$version":"A","$type":"Bolt.InvokeMember","$id":"18"},{"sourceUnit":{"$ref":"18"},"sourceKey":"exit","destinationUnit":{"$ref":"16"},"destinationKey":"Exit","guid":"04cb2149-0541-4edf-9af2-d90f3b331d94","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"trigger","destinationUnit":{"$ref":"18"},"destinationKey":"enter","guid":"0777266d-7b4e-4cbe-ac5a-5dba59c0cc79","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"CheckpointName","destinationUnit":{"$ref":"18"},"destinationKey":"%checkpointName","guid":"89f881b8-a1ad-424a-b0ed-f27b6381a8fd","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"CheckpointName","destinationUnit":{"$ref":"12"},"destinationKey":"name","guid":"03c15f65-0940-45fa-9b9b-f50fe6d9c4f7","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

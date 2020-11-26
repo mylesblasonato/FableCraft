@@ -7,26 +7,22 @@ namespace FableCraft
     [CreateAssetMenu(fileName = "StoryNode", menuName = "AIE/FableCraft/Create Story Node...")]
     public class StoryNode : ScriptableObject, IStoryNode
     {
-        [TextArea(50, 100)]
-        [SerializeField] string _storyText = "";
-        
-        [SerializeField] Texture _storyImage;
+        [SerializeField] string[] _storyTexts;
+        [SerializeField] AudioClip[] _voClips;
         [SerializeField] IStoryOption[] _storyOption;
+        [SerializeField] float _voVolume = 1f;
 
-        public string StoryText => _storyText;
+        public string[] StoryTexts => _storyTexts;
 
-        public void Play(TextMeshProUGUI storyTextContainer, int index, TextEffect textEffect, float duration = 0, bool eventTriggered = false)
+        public void Play(int nodeIndex, TextMeshProUGUI storyTextContainer, TextEffect textEffect)
         {
-            if (FableManager.Instance.CurrentStoryNode == index)
-            {
-                if (textEffect != null)
-                    textEffect.Play(_storyText, duration, storyTextContainer);
-                else
-                    storyTextContainer.text = _storyText;
+            if (_voClips.Length > 0)
+                FableAudioManager.Instance.PlayVo(_voClips[nodeIndex], _voVolume);
 
-                if (!eventTriggered)
-                    FableManager.Instance.CurrentStoryNode++;
-            }
+            if (textEffect != null)
+                textEffect.Play(_storyTexts[nodeIndex], storyTextContainer);
+            else
+                storyTextContainer.text = _storyTexts[nodeIndex];
         }
     }
 }

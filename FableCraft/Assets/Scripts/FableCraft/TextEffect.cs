@@ -5,16 +5,18 @@ namespace FableCraft
 {
     public class TextEffect : MonoBehaviour
     {
-        protected AudioClip _clip;
-        protected float _volume;
+        [SerializeField] protected AudioClip _clip;
+        [SerializeField] protected float _volume;
+        [SerializeField] protected float _duration;
 
-        public void SetProperties(AudioClip clip, float volume)
+        public void SetProperties(AudioClip clip, float volume, float duration)
         {
             _clip = clip;
             _volume = volume;
+            _duration = duration;
         }
 
-        public virtual void Play(string text, float duration, TextMeshProUGUI textContainer)
+        public virtual void Play(string text, TextMeshProUGUI textContainer)
         {
             textContainer.text = text;
         }

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ccdfce0-8451-4ca6-9970-da115e128e1e" name="Default Changelist" comment="" />
+    <list default="true" id="6ccdfce0-8451-4ca6-9970-da115e128e1e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FableCraft/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beats/TestBeat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beats/TestBeat.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FableCraft/FlowMacros/StoryFlowController.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FableCraft/FlowMacros/StoryFlowController.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FableCraft/ScriptableObjects/New Fable Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FableCraft/ScriptableObjects/New Fable Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FableCraft/IFableData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -42,14 +55,15 @@
         <option value="$PROJECT_DIR$/Assets/Editor/FableEditorStoryNodeCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableAudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableUIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/FableEditorMenuCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FableCraft/FableManager.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1jA4JiuFRvM9S4ROLt4jQQHeSef" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,6 +119,8 @@
       <workItem from="1606430563853" duration="180000" />
       <workItem from="1606430915971" duration="1000" />
       <workItem from="1606431077607" duration="9559000" />
+      <workItem from="1606443884494" duration="668000" />
+      <workItem from="1606444623405" duration="288000" />
     </task>
     <servers />
   </component>

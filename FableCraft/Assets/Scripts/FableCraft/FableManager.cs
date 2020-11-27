@@ -1,9 +1,6 @@
-﻿using Bolt;
-using System;
+﻿using System;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -115,8 +112,7 @@ namespace FableCraft
         public void AddOption(string name, string connectedOptionName, int optionIndex, float width, float height)
         {
             if (_loadingGame) return;
-            var optionBtn = Instantiate(_optionButtonPrefab);
-            optionBtn.transform.SetParent(_optionButtonsContainer.transform);
+            var optionBtn = Instantiate(_optionButtonPrefab, _optionButtonsContainer.transform);
             optionBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
             optionBtn.transform.localPosition = new Vector3(-width, -height, 0f);
             optionBtn.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);

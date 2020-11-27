@@ -930,6 +930,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1392946428259708100, guid: 2a0944353b064c141876c71b3a236233, type: 3}
+      propertyPath: _sfxClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392946428259708100, guid: 2a0944353b064c141876c71b3a236233, type: 3}
+      propertyPath: _musicClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392946428259708100, guid: 2a0944353b064c141876c71b3a236233, type: 3}
+      propertyPath: _sfxClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30456263c27694c45b9efb381da0c73c, type: 3}
+    - target: {fileID: 1392946428259708100, guid: 2a0944353b064c141876c71b3a236233, type: 3}
+      propertyPath: _musicClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: be512fe730f3649438b3c23635fd9209, type: 3}
     - target: {fileID: 1392946428259708101, guid: 2a0944353b064c141876c71b3a236233, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

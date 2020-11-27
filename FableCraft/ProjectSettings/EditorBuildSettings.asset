@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Beats/Main Menu.unity
     guid: bbc7375a2a26b2641a0ebd2aebb87f0b
   - enabled: 1
-    path: Assets/Beats/TestBeat - DELETE LATER.unity
+    path: Assets/Beats/TestBeat.unity
     guid: 92b12b368a3fdd342a57c68e49ead945
   m_configObjects: {}

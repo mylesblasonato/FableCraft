@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Fable Data
   m_EditorClassIdentifier: 
   _currentSceneAsset: 1
-  _currentCheckpointName: Checkpoint 3
+  _currentCheckpointName: Checkpoint 1
   _currentPlayNode: 0
   _attributes:
   - _name: Health

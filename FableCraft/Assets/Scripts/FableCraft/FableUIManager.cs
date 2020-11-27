@@ -7,6 +7,7 @@ namespace FableCraft
     public class FableUIManager : MonoBehaviour, IFableUIManager
     {
         public GameObject[] _imageContainers;
+        public GameObject[] _textContainers;
 
 		public static FableUIManager Instance { get; private set; }
 
@@ -20,9 +21,14 @@ namespace FableCraft
 			//DontDestroyOnLoad(gameObject);
 		}
 
-		public GameObject GetImageContainer(int index)
+		public GameObject GetImageContainer(int imageContainerIndex)
 		{
-			return _imageContainers[index];
+			return _imageContainers[imageContainerIndex];
 		}
-	}
+
+		public GameObject GetTextContainer(int textContainerIndex)
+		{
+			return _textContainers[textContainerIndex];
+		}
+    }
 }

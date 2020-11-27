@@ -14,8 +14,7 @@ namespace FableCraft
         [SerializeField] FableData _fableData;
         [SerializeField] TextMeshProUGUI _storyTextContainer;
         [SerializeField] GameObject _optionButtonsContainer, _optionButtonPrefab;
-        [SerializeField] FableController _continueButton;
-        
+
         Scene _currentScene;
         TextEffect _textEffect;
         GameObject _textEffectGO = null;      
@@ -47,7 +46,6 @@ namespace FableCraft
 
         void Start()
         {
-            _continueButton.gameObject.SetActive(false);
             _loadingGame = true;
         }
 
@@ -71,10 +69,36 @@ namespace FableCraft
             _fableData.SaveFable();           
         }
 
-        public void LoadBeat(SceneAsset scene)
+        public void ChangeAttribute(string attribute, int value)
         {
-            if (scene != null)
-                _fableData.SetSceneAsset(scene);
+            for (int i = 0; i < _fableData.Attributes.Length; i++)
+            {
+                if (attribute == _fableData.Attributes[i].Name)
+                {
+                    _fableData.Attributes[i].Value += value;
+                }
+            }
+        }
+        
+        FableAttribute GetAttribute(string attribute)
+        {
+            for (int i = 0; i < _fableData.Attributes.Length; i++)
+            {
+                if (attribute == _fableData.Attributes[i].Name)
+                {
+                    return _fableData.Attributes[i];
+                }
+            }
+
+            return new FableAttribute();
+        }
+
+        public void LoadBeat(int sceneAssetIndex)
+        {
+            if (SceneManager.sceneCount > 0)
+            {
+                _fableData.SetSceneAsset(sceneAssetIndex);
+            }
         }
 
         public void Play(StoryNode storyNode, int index)
@@ -142,10 +166,11 @@ namespace FableCraft
             if(shader)
                 container.GetComponent<Image>().material = shader;
         }
-
-        public void ShowContinueButton(bool show)
+        
+        public void ShowAttribute(string name, int textContainerIndex)
         {
-            _continueButton.gameObject.SetActive(show);
+            var container = FableUIManager.Instance.GetTextContainer(textContainerIndex);
+            container.GetComponent<TextMeshProUGUI>().text = $"{name}: {GetAttribute(name).Value}";
         }
     }
 }

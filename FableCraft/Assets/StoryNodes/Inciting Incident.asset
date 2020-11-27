@@ -18,7 +18,7 @@ MonoBehaviour:
   - Selected opt 2
   - 'This is a dialogue branch:'
   - Selected opt 11
-  - Selected opt 22
+  - Selected opt 12
   - Finish sequence
   _voClips: []
   _voVolume: 1

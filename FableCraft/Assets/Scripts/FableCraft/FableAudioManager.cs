@@ -21,7 +21,7 @@ namespace FableCraft
 				Instance = this;
 			else if (Instance != this)
 				Destroy(gameObject);
-			//DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(gameObject);
 		}
 
 		// Stop all audio

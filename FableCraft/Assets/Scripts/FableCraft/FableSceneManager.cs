@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using USM = UnityEngine.SceneManagement;
 
@@ -9,6 +11,7 @@ namespace FableCraft
 		// Singleton instance.
 		public static FableSceneManager Instance = null;
 		public bool LoadingScene { get; private set; }
+		public int[] _excludedSceneIndexes;
 
 		// Initialize the singleton instance.
 		void Awake()
@@ -17,17 +20,29 @@ namespace FableCraft
 				Instance = this;
 			else if (Instance != this)
 				Destroy(gameObject);
+			DontDestroyOnLoad(gameObject);
 		}
 
-		public void LoadScene(string newScene, bool isLoadingScene)
+		public void LoadScene(int newSceneBuildIndex, bool isLoadingScene)
 		{
 			LoadingScene = isLoadingScene;
 			if (LoadingScene)
 			{
 				LoadingScene = false;
-				if (USM.SceneManager.GetActiveScene().name == newScene) return;
-				USM.SceneManager.LoadScene(newScene, LoadSceneMode.Single);
+				if (USM.SceneManager.GetActiveScene().buildIndex == newSceneBuildIndex) return;
+				USM.SceneManager.LoadScene(newSceneBuildIndex, LoadSceneMode.Single);
 			}
 		}
-    }
+
+		public bool IsExcludedScene(int index)
+		{
+			foreach (var id in _excludedSceneIndexes)
+			{
+				if (id == index)
+					return true;
+			}
+
+			return false;
+		}
+	}
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: FableLoadCheckpoint
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[{"key":"Enter","label":null,"summary":null,"hideLabel":false}],"controlOutputDefinitions":[{"key":"Exit","label":null,"summary":null,"hideLabel":false}],"valueInputDefinitions":[{"hasDefaultValue":true,"defaultValue":{"$content":"Checkpoint","$type":"System.String"},"_type":"System.String","key":"CurrentCheckpointName","label":null,"summary":null,"hideLabel":false}],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-124.0,"y":116.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":-604.0,"y":81.0},"guid":"e7e6dd48-7c46-4b49-aa48-43c050b90cdc","$version":"A","$type":"Bolt.GraphInput","$id":"12"},{"defaultValues":{},"position":{"x":301.0,"y":80.0},"guid":"1725c0ce-3d2b-46f6-998f-bd395fb6454b","$version":"A","$type":"Bolt.GraphOutput","$id":"14"},{"argumentCount":0,"defaultValues":{"name":{"$content":"","$type":"System.String"},"target":null},"position":{"x":-153.0,"y":63.0},"guid":"24e67c6b-f8f9-4a05-833a-524a7cd835e7","$version":"A","$type":"Bolt.TriggerCustomEvent","$id":"16"},{"sourceUnit":{"$ref":"12"},"sourceKey":"Enter","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"06bc80cb-9263-40fa-b9a1-8182d10eab88","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"Exit","guid":"38d2d342-a685-48df-b27c-706bf92e7782","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"CurrentCheckpointName","destinationUnit":{"$ref":"16"},"destinationKey":"name","guid":"46d1e2ab-c454-4710-a1b8-24e7e8940559","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

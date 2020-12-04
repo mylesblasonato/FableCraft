@@ -66,13 +66,16 @@ namespace FableCraft
             _fableData.SaveFable();           
         }
 
-        public void ChangeAttribute(string attribute, int value)
+        public void ChangeAttribute(string attribute, int value, bool assign)
         {
             for (int i = 0; i < _fableData.Attributes.Length; i++)
             {
                 if (attribute == _fableData.Attributes[i].Name)
                 {
-                    _fableData.Attributes[i].Value += value;
+                    if(assign)
+                        _fableData.Attributes[i].Value = value;
+                    else
+                        _fableData.Attributes[i].Value += value;
                 }
             }
         }
@@ -155,7 +158,7 @@ namespace FableCraft
         public void ChangeSprite(Sprite sprite, Color color, Material shader, int imageContainerIndex)
         {
             if (_loadingGame) return;
-            var container = FableUIManager.Instance.GetImageContainer(imageContainerIndex);
+            var container = FableUIManager.Instance.GetUIElement(imageContainerIndex);
             container.GetComponent<Image>().color = color;
             if(sprite)
                 container.GetComponent<Image>().sprite = sprite;
@@ -163,10 +166,25 @@ namespace FableCraft
                 container.GetComponent<Image>().material = shader;
         }
         
-        public void ShowAttribute(string name, int textContainerIndex)
+        public enum UIElementType
         {
-            var container = FableUIManager.Instance.GetTextContainer(textContainerIndex);
-            container.GetComponent<TextMeshProUGUI>().text = $"{name}: {GetAttribute(name).Value}";
+            Slider,
+            Text,
+        }
+        public void ShowAttribute(string attributeName, UIElementType uiElementType, int uiElementIndex)
+        {
+            var att = _fableData.GetAttribute(attributeName);
+            var container = FableUIManager.Instance.GetUIElement(uiElementIndex);
+
+            switch (uiElementType)
+            {
+                case UIElementType.Slider:
+                    container.GetComponent<Slider>().value = att.Value;
+                    break;
+                case UIElementType.Text:
+                    container.GetComponent<TextMeshProUGUI>().text = $"{att.Name}: {att.Value}";
+                    break;
+            }
         }
     }
 }

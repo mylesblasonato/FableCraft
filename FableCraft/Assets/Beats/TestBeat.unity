@@ -237,6 +237,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54449146, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54449146, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54449146, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122959486, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 424537079, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424537079, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064823518, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171769101, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268642013, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714579334, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796912188, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4076799775367257636, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -337,6 +381,10 @@ PrefabInstance:
       propertyPath: _textContainers.Array.data[0]
       value: 
       objectReference: {fileID: 266708368}
+    - target: {fileID: 8861240480201166596, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdc27e22fb58d54696ea861f6ae433f, type: 3}
 --- !u!224 &212222638 stripped

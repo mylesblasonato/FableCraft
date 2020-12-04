@@ -13,10 +13,11 @@ namespace FableCraft
         Scene _currentScene;
 
         [SerializeField] int _currentSceneAsset = 0;
-        [SerializeField] string _currentCheckpointName;
-        public Action<string> _checkpointEvent;
+        [SerializeField] string _currentCheckpointName;      
         [SerializeField] int _currentPlayNode= 0;
-        [SerializeField] FableAttribute[] _attributes;
+
+        public Action<string> _checkpointEvent;
+        public FableAttribute[] _attributes;
 
         public Scene CurrentScene { get => _currentScene; set => _currentScene = value; }
         public int CurrentSceneAsset { get => _currentSceneAsset; private set => _currentSceneAsset = value; }
@@ -48,6 +49,13 @@ namespace FableCraft
             _currentScene = SceneManager.GetActiveScene();
         }
 
+        public void ResetFable(string checkpointName)
+        {
+            _currentSceneAsset = 1;
+            _currentCheckpointName = checkpointName;
+            _currentPlayNode = 0;
+        }
+
         public void SaveFable()
         {
             var json = JsonUtility.ToJson(this);
@@ -59,6 +67,19 @@ namespace FableCraft
             if (_savePath == "") return;
             var json = System.IO.File.ReadAllText(_savePath);
             JsonUtility.FromJsonOverwrite(json, this);
+        }
+
+        public FableAttribute GetAttribute(string attributeName)
+        {
+            for (int i = 0; i < Attributes.Length; i++)
+            {
+                if (attributeName == Attributes[i].Name)
+                {
+                    return Attributes[i];
+                }
+            }
+
+            return new FableAttribute();
         }
     }
 }
